@@ -23,10 +23,11 @@
     </div>
     <div class="cont">
         <div class="box" style="margin: 15px 0;">Your Previous Searches</div>
-        <button class="btn1">Clear Search</button>
+        <button class="btn1" onclick="fun()">Clear Search</button>
     </div>
-    <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <button style="width: 95%; ">
+    <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;"
+        id="c1">
+        <!-- <button style="width: 95%; ">
             <div style="display: flex; justify-content: space-between;">
                 <div>hjk</div>
                 <div>jjkl</div>
@@ -34,20 +35,37 @@
         </button>
         <button style="width: 95%; ">
             <div style="display: flex; justify-content: space-between;">
-                <div>hjk</div>
-                <div>jjkl</div>
+                <div>${e["id"]}. ${e["book"]}</div>
+                <div>Searched On: ${e["date"]} at ${e["time"]} </div>
             </div>
-        </button>
-        <button style="width: 95%; ">
-            <div style="display: flex; justify-content: space-between;">
-                <div>hjk</div>
-                <div>jjkl</div>
-            </div>
-        </button>
+        </button> -->
     </div>
 
 
-    <script src="script.js"></script>
+    <script>
+        if (localStorage.getItem("history") != null) {
+            let ab = document.getElementById('c1');
+            let b = JSON.parse(localStorage.getItem("history"));
+            for (const e of b) {
+
+                let el = document.createElement("button");
+                el.classList.add("prd1");
+
+                el.innerHTML = `
+            <div style="display: flex; justify-content: space-between;">
+                <div>${e["id"]}. ${e["book"]}</div>
+                <div>Searched On: ${e["date"]} at ${e["time"]} </div>
+            </div>
+             `;
+
+                ab.appendChild(el);
+            }
+        }
+        let fun = () => {
+            localStorage.clear();
+            location.assign("history.html")
+        }
+    </script>
 </body>
 
 </html>

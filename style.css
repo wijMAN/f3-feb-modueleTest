@@ -16,11 +16,13 @@
   justify-content: space-between;
 }
 .box,
-button {
+button,
+input {
   padding: 15px 20px;
   font-size: 20px;
 }
-button {
+button,
+input {
   margin: 20px 20px;
   border-radius: 8px;
   border: 1px solid white;
@@ -29,7 +31,7 @@ button {
   color: black;
   background-color: white;
 }
-button:hover {
+.btn1:hover {
   cursor: pointer;
 }
 .btn1:active {
@@ -38,4 +40,28 @@ button:hover {
 
 a {
   text-decoration: none;
+}
+
+.prd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid white;
+  margin: 40px 2px;
+  padding: 50px 3px;
+  /* min-width: 10vw; */
+  width: 25vw;
+  /* width: 200px; */
+  height: 60vh;
+}
+#result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.prd1 {
+  width: 95%;
 }

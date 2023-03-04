@@ -22,7 +22,33 @@
 
     </div>
     <div class="box" style="margin: 15px 0;">Your Searched Books</div>
+
+    <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;"
+        id="c1">
+    </div>
+    <p style="margin: 15px 15px;" id="result"></p>
     <script src="script.js"></script>
+    <script>
+        if (localStorage.getItem("history") != null) {
+            let ab = document.getElementById('c1');
+            let b = JSON.parse(localStorage.getItem("history"));
+            for (const e of b) {
+
+                let el = document.createElement("button");
+                el.classList.add("prd1");
+
+                el.innerHTML = `
+            <div style="display: flex; justify-content: space-between;">
+                <div>${e["id"]}. ${e["book"]}</div>
+                <div>Searched On: ${e["date"]} at ${e["time"]} </div>
+            </div>
+             `;
+
+                ab.appendChild(el);
+                fun2(e["book"]);
+            }
+        }
+    </script>
 </body>
 
 </html>
